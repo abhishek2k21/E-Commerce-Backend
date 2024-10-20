@@ -15,7 +15,6 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
-	// Custom Exception Handler Area Starts
 	
 	@ExceptionHandler(ProductNotFoundException.class)
 	public ResponseEntity<ErrorDetails> productNotFound(ProductNotFoundException pnf,WebRequest wr){
@@ -71,7 +70,6 @@ public class GlobalExceptionHandler {
 		ErrorDetails err = new ErrorDetails(LocalDateTime.now(), oe.getMessage(), wr.getDescription(false));
 		return new ResponseEntity<>(err, HttpStatus.FORBIDDEN);
 	}
-	// Custom Exception Handler Area Ends
 	
 	
 	@ExceptionHandler(NoHandlerFoundException.class)
