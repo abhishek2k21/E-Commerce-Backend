@@ -28,9 +28,7 @@ public class SellerController {
 	@Autowired
 	private SellerService sService;
 	
-	
-	//Add seller-------------------------------------
-	
+		
 	@PostMapping("/addseller")
 	public ResponseEntity<Seller> addSellerHandler(@Valid @RequestBody Seller seller){
 		
@@ -42,10 +40,6 @@ public class SellerController {
 	}
 	
 	
-	
-	//Get the list of seller-----------------------
-	
-	
 	@GetMapping("/sellers")
 	public ResponseEntity<List<Seller>> getAllSellerHandler(){
 		
@@ -53,10 +47,7 @@ public class SellerController {
 		
 		return new ResponseEntity<List<Seller>>(sellers, HttpStatus.OK);
 	}
-	
-	
-	//Get the seller by Id............................
-	
+
 	
 	@GetMapping("/seller/{sellerId}")
 	public ResponseEntity<Seller> getSellerByIdHandler(@PathVariable("sellerId") Integer Id){
@@ -65,9 +56,7 @@ public class SellerController {
 		
 		return new ResponseEntity<Seller>(getSeller, HttpStatus.OK);
 	}
-	
-	
-	// Get Seller by mobile Number
+
 	
 	@GetMapping("/seller")
 	public ResponseEntity<Seller> getSellerByMobileHandler(@RequestParam("mobile") String mobile, @RequestHeader("token") String token){
@@ -76,9 +65,7 @@ public class SellerController {
 		
 		return new ResponseEntity<Seller>(getSeller, HttpStatus.OK);
 	}
-	
-	
-	// Get currently logged in seller
+
 	
 	@GetMapping("/seller/current")
 	public ResponseEntity<Seller> getLoggedInSellerHandler(@RequestHeader("token") String token){
@@ -87,8 +74,6 @@ public class SellerController {
 		
 		return new ResponseEntity<Seller>(getSeller, HttpStatus.OK);
 	}
-	
-	//Update the seller..............................
 	
 	
 	@PutMapping("/seller")
