@@ -30,10 +30,7 @@ public class ProductController {
 	@Autowired
 	private ProductService pService;
 
-	// this method adds new product to catalog by seller(if seller is new it adds
-	// seller as well
-	// if seller is already existing products will be mapped to same seller) and
-	// returns added product
+	
 
 	@PostMapping("/products")
 	public ResponseEntity<Product> addProductToCatalogHandler(@RequestHeader("token") String token,
@@ -45,8 +42,7 @@ public class ProductController {
 
 	}
 
-	// This method gets the product which needs to be added to the cart returns
-	// product
+	
 
 	@GetMapping("/product/{id}")
 	public ResponseEntity<Product> getProductFromCatalogByIdHandler(@PathVariable("id") Integer id) {
@@ -57,9 +53,7 @@ public class ProductController {
 
 	}
 
-	// This method will delete the product from catalog and returns the response
-	// This will be called only when the product qty will be zero or seller wants to
-	// delete for any other reason
+	
 
 	@DeleteMapping("/product/{id}")
 	public ResponseEntity<String> deleteProductFromCatalogHandler(@PathVariable("id") Integer id) {
@@ -85,7 +79,6 @@ public class ProductController {
 		return new ResponseEntity<List<Product>>(list, HttpStatus.OK);
 	}
 	
-  //this method gets the products mapped to a particular seller
 	@GetMapping("/products/seller/{id}")
 	public ResponseEntity<List<ProductDTO>> getAllProductsOfSellerHandler(@PathVariable("id") Integer id) {
 
