@@ -40,7 +40,7 @@ public class CartController {
 		return new ResponseEntity<Cart>(cart,HttpStatus.CREATED);
 	}
 	
-//	
+
 	@GetMapping(value = "/cart")
 	public ResponseEntity<Cart> getCartProductHandler(@RequestHeader("token")String token){
 		return new ResponseEntity<>(cartService.getCartProduct(token), HttpStatus.ACCEPTED);
