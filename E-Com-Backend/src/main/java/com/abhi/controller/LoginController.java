@@ -32,14 +32,12 @@ public class LoginController {
 	private SellerService sellerService;
 
 	
-	// Handler to register a new customer
 	
 	@PostMapping(value = "/register/customer", consumes = "application/json")
 	public ResponseEntity<Customer> registerAccountHandler(@Valid @RequestBody Customer customer) {
 		return new ResponseEntity<>(customerService.addCustomer(customer), HttpStatus.CREATED);
 	}
 	
-	// Handler to login a user
 	
 	@PostMapping(value = "/login/customer", consumes = "application/json")
 	public ResponseEntity<UserSession> loginCustomerHandler(@Valid @RequestBody CustomerDTO customerdto){
@@ -47,7 +45,6 @@ public class LoginController {
 	}
 	
 	
-	// Handler to logout a user
 	
 	@PostMapping(value = "/logout/customer", consumes = "application/json")
 	public ResponseEntity<SessionDTO> logoutCustomerHandler(@RequestBody SessionDTO sessionToken){
@@ -57,7 +54,6 @@ public class LoginController {
 	
 	
 	
-	/*********** SELLER REGISTER LOGIN LOGOUT HANDLER ************/
 	
 	@PostMapping(value = "/register/seller", consumes = "application/json")
 	public ResponseEntity<Seller> registerSellerAccountHandler(@Valid @RequestBody Seller seller) {
@@ -65,7 +61,6 @@ public class LoginController {
 	}
 	
 	
-	// Handler to login a user
 	
 	@PostMapping(value = "/login/seller", consumes = "application/json")
 	public ResponseEntity<UserSession> loginSellerHandler(@Valid @RequestBody SellerDTO seller){
@@ -73,7 +68,6 @@ public class LoginController {
 	}
 		
 		
-	// Handler to logout a user
 		
 	@PostMapping(value = "/logout/seller", consumes = "application/json")
 	public ResponseEntity<SessionDTO> logoutSellerHandler(@RequestBody SessionDTO sessionToken){
