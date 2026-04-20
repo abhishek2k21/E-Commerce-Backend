@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhishek Kumar - Backend Developer Resume</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -224,65 +223,18 @@
             margin: 0;
         }
 
-        /* ── PDF DOWNLOAD BUTTON ── */
-        .pdf-button-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .pdf-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-        }
-
-        .pdf-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        @media print {
-            .pdf-button-container { display: none; }
-        }
-
         /* ── PROJECT LINKS ── */
-        .project-link {
-            display: inline-block;
-            margin-top: 1px;
-            padding: 2px 6px;
-            background: #f0f0f0;
+        .project-name a {
             color: #0066cc;
             text-decoration: none;
-            font-size: 8.5pt;
-            border-radius: 3px;
-            border: 0.5px solid #ddd;
         }
 
-        .project-link:hover {
-            background: #e8e8e8;
+        .project-name a:hover {
             text-decoration: underline;
-        }
-
-        a.project-link {
-            color: #0066cc;
         }
     </style>
 </head>
 <body>
-    <!-- PDF Download Button -->
-    <div class="pdf-button-container">
-        <button class="pdf-button" onclick="downloadPDF()">📥 Download PDF</button>
-    </div>
-
     <div class="resume">
 
         <!-- ═══════════════ HEADER ═══════════════ -->
@@ -340,15 +292,14 @@
             <h2 class="section-title">Projects</h2>
 
             <div class="project-entry">
-                <div><span class="project-name">E-Commerce Backend API</span> <span class="project-tech">— Java 8, Spring Boot, MySQL, Hibernate, Swagger</span></div>
+                <div><span class="project-name"><a href="https://abhishek2k21.github.io/E-Commerce-Backend/" target="_blank">E-Commerce Backend API ↗</a></span> <span class="project-tech">— Java 8, Spring Boot, MySQL, Hibernate, Swagger</span></div>
                 <ul>
                     <li>Comprehensive REST API for full-featured e-commerce platform with 30+ endpoints, 6 core modules (Auth, Customer, Seller, Product, Cart, Order) handling products, inventory, orders, and session-based authentication.</li>
-                    <li><strong>Live Documentation:</strong> <a href="https://abhishek2k21.github.io/E-Commerce-Backend/" target="_blank" class="project-link">View API Docs ↗</a></li>
                 </ul>
             </div>
 
             <div class="project-entry">
-                <div><span class="project-name">Cognitive API Agent</span> <span class="project-tech">— Python, Streamlit, OpenAI, Pydantic-AI</span></div>
+                <div><span class="project-name"><a href="https://abhishek2k21.github.io/cognitive-api-agent/" target="_blank">Cognitive API Agent ↗</a></span> <span class="project-tech">— Python, Streamlit, OpenAI, Pydantic-AI</span></div>
                 <ul>
                     <li>Built AI-powered tool converting natural language → API calls with reasoning layer for request validation, follow-up questions, and execution flow with user confirmation.</li>
                 </ul>
@@ -406,27 +357,5 @@
         </section>
 
     </div>
-
-    <script>
-        // Dynamic PDF Download
-        function downloadPDF() {
-            const element = document.querySelector('.resume');
-            const opt = {
-                margin: 0,
-                filename: 'Abhishek_Kumar_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { format: 'letter', orientation: 'portrait' }
-            };
-            
-            // Check if html2pdf library is available, if not use print dialog
-            if (typeof html2pdf !== 'undefined') {
-                html2pdf().set(opt).from(element).save();
-            } else {
-                // Fallback: Use browser's print dialog
-                window.print();
-            }
-        }
-    </script>
 </body>
 </html>
